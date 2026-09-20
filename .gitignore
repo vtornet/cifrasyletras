@@ -1,0 +1,27 @@
+node_modules/
+dist/
+dist-ssr/
+.env
+.env.local
+*.local
+
+# editor
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# logs
+npm-debug.log*
+pnpm-debug.log*
+
+# OS
+Thumbs.db
+.DS_Store
+
+# coverage / build artifacts
+coverage/
+*.tsbuildinfo
+
+# diccionario copiado desde packages/game-engine/data (ver scripts/copy-dictionary.mjs);
+# la fuente de verdad es data/es-words.dict, esta es solo una copia de build
+apps/web/public/dictionary/

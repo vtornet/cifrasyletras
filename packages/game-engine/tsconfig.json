@@ -1,0 +1,13 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    // DOM solo por los tipos ambient de TextEncoder/TextDecoder (dictionary-codec.ts);
+    // son globals estandar tanto en navegador como en Node, no APIs de DOM en si.
+    "lib": ["ES2022", "DOM"]
+  },
+  "include": ["src"]
+}

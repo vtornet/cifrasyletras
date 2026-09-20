@@ -1,0 +1,23 @@
+{
+  "name": "duelo-lexico",
+  "private": true,
+  "version": "0.0.1",
+  "description": "PWA inspirada en la dinamica de Cifras y Letras - modo local (1 jugador) y online (2 jugadores)",
+  "type": "module",
+  "scripts": {
+    "dev:web": "pnpm --filter web dev",
+    "dev:server": "pnpm --filter server dev",
+    "build": "pnpm -r --if-present build",
+    "test": "pnpm -r --if-present test",
+    "lint": "pnpm -r --if-present lint",
+    "typecheck": "pnpm -r --if-present typecheck",
+    "format": "prettier --write ."
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "prettier": "^3.3.3"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

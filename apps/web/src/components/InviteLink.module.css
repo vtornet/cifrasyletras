@@ -1,0 +1,78 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.code {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  background: var(--accent-bg);
+  color: var(--accent);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 8px 20px;
+}
+
+.shareRow {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.shareButton {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+  text-align: center;
+  border-radius: var(--radius-md);
+  padding: 12px 10px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition:
+    transform 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.shareButton:hover {
+  transform: translateY(-1px);
+}
+
+.shareButton:active {
+  transform: translateY(0);
+}
+
+.whatsapp {
+  background: rgba(37, 211, 102, 0.14);
+  border-color: rgba(37, 211, 102, 0.4);
+  color: #25d366;
+}
+
+.whatsapp:hover {
+  border-color: #25d366;
+}
+
+.telegram {
+  background: rgba(34, 158, 217, 0.14);
+  border-color: rgba(34, 158, 217, 0.4);
+  color: #47b6ea;
+}
+
+.telegram:hover {
+  border-color: #229ed9;
+}
