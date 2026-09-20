@@ -5,6 +5,7 @@ import { BIG_NUMBERS, MAX_VOWELS, MIN_VOWELS, type CpuDifficulty } from '@duelo-
 import { useEffect, useState } from 'react';
 import { ChoicePicker } from '../components/ChoicePicker';
 import { Cronometro } from '../components/Cronometro';
+import { HomeButton } from '../components/HomeButton';
 import { LetterBoard } from '../components/LetterBoard';
 import { Marcador } from '../components/Marcador';
 import { NumberBoard } from '../components/NumberBoard';
@@ -55,7 +56,7 @@ export function LocalMatchPage({ onExit, onViewStats }: LocalMatchPageProps) {
   }, [opponentChosen]);
 
   if (opponentChosen === undefined) {
-    return <OpponentPicker onChoose={setOpponentChosen} />;
+    return <OpponentPicker onChoose={setOpponentChosen} onExit={onExit} />;
   }
 
   if (phase === 'idle' || !matchState) {
@@ -112,6 +113,7 @@ export function LocalMatchPage({ onExit, onViewStats }: LocalMatchPageProps) {
 
   return (
     <main>
+      <HomeButton onExit={onExit} confirmExit />
       <p className="badge">
         Ronda {roundNumber} de {totalRounds} — {roundConfig?.kind === 'letters' ? 'Letras' : 'Cifras'}
       </p>

@@ -2,17 +2,19 @@
 // unirse con un codigo (a mano o via enlace ?room=CODIGO, ver App.tsx).
 
 import { useEffect, useRef, useState } from 'react';
+import { HomeButton } from '../components/HomeButton';
 import { InviteLink } from '../components/InviteLink';
 import { useOnlineMatchStore } from '../modes/online';
 import styles from './OnlineLobbyPage.module.css';
 
 export interface OnlineLobbyPageProps {
   onRoomReady: () => void;
+  onExit: () => void;
   /** Codigo recibido por enlace de invitacion (?room=CODIGO): se intenta unir automaticamente. */
   autoJoinCode?: string | null;
 }
 
-export function OnlineLobbyPage({ onRoomReady, autoJoinCode }: OnlineLobbyPageProps) {
+export function OnlineLobbyPage({ onRoomReady, onExit, autoJoinCode }: OnlineLobbyPageProps) {
   const { phase, roomId, errorMessage, createRoom, joinRoom } = useOnlineMatchStore();
   const [joinCode, setJoinCode] = useState(autoJoinCode ?? '');
   const hasAutoJoined = useRef(false);
@@ -30,6 +32,7 @@ export function OnlineLobbyPage({ onRoomReady, autoJoinCode }: OnlineLobbyPagePr
 
   return (
     <main>
+      <HomeButton onExit={onExit} />
       <h1>Jugar Online</h1>
 
       {errorMessage && <p role="alert">{errorMessage}</p>}

@@ -4,6 +4,7 @@
 
 import { ChoicePicker } from '../components/ChoicePicker';
 import { Cronometro } from '../components/Cronometro';
+import { HomeButton } from '../components/HomeButton';
 import { InviteLink } from '../components/InviteLink';
 import { LetterBoard } from '../components/LetterBoard';
 import { Marcador } from '../components/Marcador';
@@ -43,6 +44,7 @@ export function OnlineMatchPage({ onExit }: OnlineMatchPageProps) {
   if (phase === 'connecting') {
     return (
       <main>
+        <HomeButton onExit={onExit} onBeforeExit={leaveRoom} />
         <h1>Reconectando…</h1>
         <p className={styles.waitingNote}>Retomando tu partida</p>
       </main>
@@ -66,6 +68,7 @@ export function OnlineMatchPage({ onExit }: OnlineMatchPageProps) {
   if (phase === 'waiting-for-opponent') {
     return (
       <main>
+        <HomeButton onExit={onExit} onBeforeExit={leaveRoom} />
         <h1>Esperando rival…</h1>
         <div className="card">
           {roomId && <InviteLink roomId={roomId} />}
@@ -80,6 +83,7 @@ export function OnlineMatchPage({ onExit }: OnlineMatchPageProps) {
     const isMyTurn = choosing.chooserPlayerId === playerId;
     return (
       <main>
+        <HomeButton onExit={onExit} onBeforeExit={leaveRoom} confirmExit />
         <p className="badge">
           Ronda {choosing.roundIndex + 1} — {choosing.kind === 'letters' ? 'Letras' : 'Cifras'}
         </p>
@@ -131,6 +135,7 @@ export function OnlineMatchPage({ onExit }: OnlineMatchPageProps) {
 
   return (
     <main>
+      <HomeButton onExit={onExit} onBeforeExit={leaveRoom} confirmExit />
       <p className="badge">Partida Online</p>
       {errorMessage && <p role="alert">{errorMessage}</p>}
 

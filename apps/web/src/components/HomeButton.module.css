@@ -1,0 +1,18 @@
+.homeButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: var(--text-muted);
+  font-size: 0.88rem;
+  padding: 4px 2px;
+  margin-bottom: 14px;
+}
+
+.homeButton:hover:not(:disabled) {
+  color: var(--accent);
+  border: none;
+  transform: none;
+}

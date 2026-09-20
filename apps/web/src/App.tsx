@@ -81,7 +81,7 @@ function App() {
     case 'local':
       return <LocalMatchPage onExit={goHome} onViewStats={goStats} />;
     case 'online-lobby':
-      return <OnlineLobbyPage onRoomReady={goOnlineMatch} autoJoinCode={autoJoinCode} />;
+      return <OnlineLobbyPage onRoomReady={goOnlineMatch} onExit={goHome} autoJoinCode={autoJoinCode} />;
     case 'online-match':
       return <OnlineMatchPage onExit={goHome} />;
     case 'stats':

@@ -2,10 +2,12 @@
 // jugar contra el bot con una de tres dificultades (ver game-engine/src/cpu/bot.ts).
 
 import type { CpuDifficulty } from '@duelo-lexico/game-engine';
+import { HomeButton } from './HomeButton';
 import styles from './OpponentPicker.module.css';
 
 export interface OpponentPickerProps {
   onChoose: (opponent: CpuDifficulty | null) => void;
+  onExit: () => void;
 }
 
 const DIFFICULTY_OPTIONS: Array<{ value: CpuDifficulty; label: string; desc: string }> = [
@@ -14,9 +16,10 @@ const DIFFICULTY_OPTIONS: Array<{ value: CpuDifficulty; label: string; desc: str
   { value: 'hard', label: 'Difícil', desc: 'La CPU casi siempre da la mejor respuesta' },
 ];
 
-export function OpponentPicker({ onChoose }: OpponentPickerProps) {
+export function OpponentPicker({ onChoose, onExit }: OpponentPickerProps) {
   return (
     <main>
+      <HomeButton onExit={onExit} />
       <h1>¿Cómo quieres jugar?</h1>
       <div className={styles.options}>
         <button type="button" className={`${styles.option} ${styles.featured}`} onClick={() => onChoose(null)}>
