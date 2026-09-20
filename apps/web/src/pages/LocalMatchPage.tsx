@@ -136,17 +136,18 @@ export function LocalMatchPage({ onExit, onViewStats }: LocalMatchPageProps) {
 
       {phase === 'answering' && deadline && (
         <div className="card">
+          {roundConfig?.kind === 'numbers' && numbers && target !== null && (
+            <p className={styles.objective}>
+              <span className={styles.objectiveLabel}>Objetivo</span>
+              <span className={`${styles.objectiveValue} gradient-text`}>{target}</span>
+            </p>
+          )}
           <Cronometro deadline={deadline} onExpire={timeUp} />
           {roundConfig?.kind === 'letters' && letters && (
             <LetterBoard letters={[...letters.vowels, ...letters.consonants]} onSubmit={submitAnswer} />
           )}
           {roundConfig?.kind === 'numbers' && numbers && target !== null && (
-            <>
-              <p className={styles.objective}>
-                Objetivo: <span className={styles.objectiveValue}>{target}</span>
-              </p>
-              <NumberBoard numbers={numbers} onSubmit={submitAnswer} />
-            </>
+            <NumberBoard numbers={numbers} onSubmit={submitAnswer} />
           )}
         </div>
       )}

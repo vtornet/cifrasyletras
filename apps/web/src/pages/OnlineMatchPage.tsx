@@ -146,6 +146,12 @@ export function OnlineMatchPage({ onExit }: OnlineMatchPageProps) {
           <p className={styles.roundHeader}>
             Ronda {roundStart.roundIndex + 1} — {roundStart.kind === 'letters' ? 'Letras' : 'Cifras'}
           </p>
+          {roundStart.kind === 'numbers' && roundStart.numbers && (
+            <p className={styles.objective}>
+              <span className={styles.objectiveLabel}>Objetivo</span>
+              <span className={`${styles.objectiveValue} gradient-text`}>{roundStart.target}</span>
+            </p>
+          )}
           <Cronometro deadline={roundStart.deadline} />
           {roundStart.kind === 'letters' && roundStart.letters && (
             <LetterBoard
@@ -154,12 +160,7 @@ export function OnlineMatchPage({ onExit }: OnlineMatchPageProps) {
             />
           )}
           {roundStart.kind === 'numbers' && roundStart.numbers && (
-            <>
-              <p className={styles.objective}>
-                Objetivo: <span className={styles.objectiveValue}>{roundStart.target}</span>
-              </p>
-              <NumberBoard numbers={roundStart.numbers} onSubmit={submitAnswer} />
-            </>
+            <NumberBoard numbers={roundStart.numbers} onSubmit={submitAnswer} />
           )}
         </div>
       )}
