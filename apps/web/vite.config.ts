@@ -15,6 +15,11 @@ export default defineConfig({
         // y su extension .dict no esta en el glob por defecto.
         globPatterns: ['**/*.{js,css,html,ico,png,svg,dict}'],
         maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
+        // El primer load tras un despliegue siempre sirve la version vieja cacheada (asi
+        // funciona cualquier service worker); skipWaiting+clientsClaim minimizan cuanto
+        // tarda el nuevo SW en tomar el control y disparar el auto-reload de autoUpdate.
+        skipWaiting: true,
+        clientsClaim: true,
       },
       // Iconos de marcador de posicion (gradiente + fichas), a la espera de un diseno
       // de marca definitivo (ver AGENTS.md - nota de marca: no usar assets oficiales de RTVE).
