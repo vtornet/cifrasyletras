@@ -7,9 +7,11 @@ const wordCount = initDictionary();
 console.log(`[dictionary] ${wordCount} palabras cargadas`);
 
 const httpServer = createServer();
-// TODO: restringir el origen CORS antes de desplegar a produccion (ver AGENTS.md #16).
+// CLIENT_ORIGIN restringe CORS al dominio real de apps/web en produccion (ver AGENTS.md #16);
+// sin definir (desarrollo local) se admite cualquier origen.
+const clientOrigin = process.env.CLIENT_ORIGIN;
 const io: AppServer = new Server(httpServer, {
-  cors: { origin: '*' },
+  cors: { origin: clientOrigin ?? '*' },
 });
 
 io.on('connection', (socket: AppSocket) => {
